@@ -1,5 +1,6 @@
 package control;
 
+import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,7 +10,7 @@ import java.sql.SQLException;
 
 public class Conexao {
 
-    private Statement stmt;
+    private PreparedStatement stmt;
     private Connection conexao;
     private final String user = "root";
     private final String pass = "";
@@ -23,6 +24,16 @@ public class Conexao {
             conexao = DriverManager.getConnection(user, user, pass);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+    }
+
+    public void fechaCon() {
+
+        try {
+            conexao.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
 
     }
