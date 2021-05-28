@@ -12,7 +12,7 @@ public class Produto {
     private Double custo;
     private String marca;
     private String descricao;
-    private Byte[] imagem;
+    private byte[] imagem;
     private Embalagem embalagem;
     private Integer estoque_minimo;
 
@@ -96,11 +96,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Byte[] getImagem() {
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(Byte[] imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
 

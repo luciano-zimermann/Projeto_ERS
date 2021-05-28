@@ -4,17 +4,17 @@ import java.util.Date;
 
 public class Saida {
 
-    private Integer id_entrada;
+    private Integer id_saida;
     private Integer unidades;
     private Date data_saida;
     private Produto produto;
 
-    public Integer getId_entrada() {
-        return id_entrada;
+    public Integer getId_saida() {
+        return id_saida;
     }
 
-    public void setId_entrada(Integer id_entrada) {
-        this.id_entrada = id_entrada;
+    public void setId_saida(Integer id_saida) {
+        this.id_saida = id_saida;
     }
 
     public Integer getUnidades() {

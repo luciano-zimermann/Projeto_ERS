@@ -4,7 +4,7 @@ public class Lista_Precos {
 
     private Integer id_lista;
     private String descricao;
-    private Integer preco;
+    private Double preco;
     private Produto produto;
 
     public Integer getId_lista() {
@@ -23,11 +23,11 @@ public class Lista_Precos {
         this.descricao = descricao;
     }
 
-    public Integer getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(Integer preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
