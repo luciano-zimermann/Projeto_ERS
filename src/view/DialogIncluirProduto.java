@@ -19,20 +19,25 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import utility.Formatacoes;
 
 
 public class DialogIncluirProduto extends javax.swing.JDialog {
     
-    public DialogIncluirProduto(java.awt.Frame parent, boolean modal) {
+    public DialogIncluirProduto(java.awt.Frame parent, boolean modal, TelaProduto telaProduto) {
         super(parent, modal);
         initComponents();
         listarEmbalagem();
-       
+        this.telaProduto = telaProduto;
     }
-    
+
     TelaProduto telaProduto;
     private File imagem;
     Produto produto;
+
+    private DialogIncluirProduto(JFrame jFrame, boolean b) {
+        
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -73,7 +78,6 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
         jLabel15 = new javax.swing.JLabel();
         tfGarantia = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        btnSalvar = new javax.swing.JButton();
         btnIncluir = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         cbEmbalagem = new javax.swing.JComboBox<>();
@@ -145,7 +149,6 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
         jpColocarImagem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 140)));
 
         lblImagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblImagem.setText("Imagem");
 
         javax.swing.GroupLayout jpColocarImagemLayout = new javax.swing.GroupLayout(jpColocarImagem);
         jpColocarImagem.setLayout(jpColocarImagemLayout);
@@ -159,103 +162,105 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
         );
 
         jpCentro.add(jpColocarImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, -1, -1));
-
-        tfNome.setText("Nome");
         jpCentro.add(tfNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 65, 480, -1));
 
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 140));
         jLabel3.setText("SKU:");
         jpCentro.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 22, -1, -1));
 
-        tfSku.setText("Sku");
         tfSku.setEnabled(false);
         jpCentro.add(tfSku, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 110, 22));
 
-        jLabel4.setText("Garantia:");
-        jpCentro.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, 20));
-
-        tfEan.setText("Ean");
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel4.setText("GARANTIA:");
+        jpCentro.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 110, -1, 20));
         jpCentro.add(tfEan, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 110, 110, 22));
 
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 140));
         jLabel5.setText("EAN:");
         jpCentro.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 113, -1, -1));
+        jpCentro.add(tfMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 110, 22));
 
-        tfMarca.setText("Marca");
-        jpCentro.add(tfMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 110, 22));
-
-        jLabel6.setText("Marca:");
-        jpCentro.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, 20));
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel6.setText("MARCA:");
+        jpCentro.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 110, -1, 20));
 
         jtaDescricao.setColumns(20);
         jtaDescricao.setRows(5);
         jScrollPane1.setViewportView(jtaDescricao);
 
-        jpCentro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 510, 130));
+        jpCentro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 510, 130));
 
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 140));
         jLabel7.setText("Descrição:");
-        jpCentro.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-
-        tfPreco.setText("Preço");
+        jpCentro.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
         jpCentro.add(tfPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 152, 110, 22));
 
-        jLabel8.setText("Altura:");
-        jpCentro.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, -1, 20));
+        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel8.setText("ALTURA:");
+        jpCentro.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, -1, 20));
 
-        tfAltura.setText("A");
         tfAltura.setEnabled(false);
         jpCentro.add(tfAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 110, 22));
 
-        jLabel9.setText("Custo:");
-        jpCentro.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 20));
-
-        tfEstoque.setText("Unidades");
+        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel9.setText("CUSTO:");
+        jpCentro.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 150, -1, 20));
         jpCentro.add(tfEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 110, 22));
 
-        jLabel10.setText("Estoque:");
-        jpCentro.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 210, -1, 20));
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel10.setText("ESTOQUE:");
+        jpCentro.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, 20));
 
-        jLabel11.setText("Estoque minímo:");
-        jpCentro.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, 20));
-
-        tfEstoqueMinimo.setText("Unidades");
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel11.setText("ESTOQUE MINÍMO:");
+        jpCentro.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, -1, 20));
         jpCentro.add(tfEstoqueMinimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 110, 22));
 
-        jLabel12.setText("Preço:");
-        jpCentro.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 152, -1, 20));
+        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel12.setText("PREÇO:");
+        jpCentro.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 152, -1, 20));
+        jpCentro.add(tfCusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 110, 22));
 
-        tfCusto.setText("Custo");
-        jpCentro.add(tfCusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 110, 22));
-
-        tfComprimento.setText("C");
         tfComprimento.setEnabled(false);
         jpCentro.add(tfComprimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 110, 22));
 
-        tfLargura.setText("L");
         tfLargura.setEnabled(false);
         jpCentro.add(tfLargura, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 110, 22));
 
-        jLabel13.setText("Embalagem:");
-        jpCentro.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, 20));
+        jLabel13.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel13.setText("EMBALAGEM:");
+        jpCentro.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 410, -1, 20));
 
-        jLabel14.setText("Comprimento:");
-        jpCentro.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, -1, 20));
+        jLabel14.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel14.setText("COMPRIMENTO:");
+        jpCentro.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, 20));
 
-        jLabel15.setText("Largura:");
-        jpCentro.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, -1, 20));
+        jLabel15.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel15.setText("LARGURA:");
+        jpCentro.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, 20));
+        jpCentro.add(tfGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 110, 22));
 
-        tfGarantia.setText("Garantia");
-        jpCentro.add(tfGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 110, 22));
-
-        jLabel16.setText("Nome:");
+        jLabel16.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel16.setText("NOME:");
         jpCentro.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 68, -1, -1));
 
-        btnSalvar.setBackground(new java.awt.Color(0, 0, 140));
-        btnSalvar.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
-        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalvar.setText("Salvar");
-        jpCentro.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, -1, -1));
-
         btnIncluir.setBackground(new java.awt.Color(0, 0, 140));
-        btnIncluir.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        btnIncluir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnIncluir.setForeground(new java.awt.Color(255, 255, 255));
         btnIncluir.setText("Incluir");
         btnIncluir.addActionListener(new java.awt.event.ActionListener() {
@@ -263,10 +268,10 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
                 btnIncluirActionPerformed(evt);
             }
         });
-        jpCentro.add(btnIncluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, -1, -1));
+        jpCentro.add(btnIncluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, -1, -1));
 
         btnVoltar.setBackground(new java.awt.Color(0, 0, 140));
-        btnVoltar.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        btnVoltar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +281,11 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
         });
         jpCentro.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, -1, -1));
 
+        cbEmbalagem.setBackground(new java.awt.Color(0, 0, 140));
+        cbEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        cbEmbalagem.setForeground(new java.awt.Color(255, 255, 255));
         cbEmbalagem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personalizado", "Caixa 1", "Caixa 2", "Caixa 3" }));
+        cbEmbalagem.setRequestFocusEnabled(false);
         cbEmbalagem.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbEmbalagemItemStateChanged(evt);
@@ -285,7 +294,7 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
         jpCentro.add(cbEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 110, 22));
 
         btnAbrirImagem.setBackground(new java.awt.Color(0, 0, 140));
-        btnAbrirImagem.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        btnAbrirImagem.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnAbrirImagem.setForeground(new java.awt.Color(255, 255, 255));
         btnAbrirImagem.setText("Abrir Imagem");
         btnAbrirImagem.setToolTipText("Clique para importar a imagem");
@@ -294,16 +303,16 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
                 btnAbrirImagemActionPerformed(evt);
             }
         });
-        jpCentro.add(btnAbrirImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, -1, -1));
+        jpCentro.add(btnAbrirImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 155, -1, -1));
+        jpCentro.add(tfPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 110, 22));
 
-        tfPeso.setText("Peso");
-        jpCentro.add(tfPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 110, 22));
-
-        jLabel17.setText("Peso:");
-        jpCentro.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, 20));
+        jLabel17.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel17.setText("PESO:");
+        jpCentro.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, 20));
 
         btnLimpar1.setBackground(new java.awt.Color(0, 0, 140));
-        btnLimpar1.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        btnLimpar1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnLimpar1.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpar1.setText("Limpar");
         btnLimpar1.addActionListener(new java.awt.event.ActionListener() {
@@ -311,7 +320,7 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
                 btnLimpar1ActionPerformed(evt);
             }
         });
-        jpCentro.add(btnLimpar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, -1, -1));
+        jpCentro.add(btnLimpar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, -1, -1));
 
         getContentPane().add(jpCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 800, 560));
 
@@ -329,7 +338,7 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
 
     private void btnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirActionPerformed
         
-      
+        Formatacoes formatacoes = new Formatacoes();
         Conexao_Produto conexao_Produto = new Conexao_Produto();
      
         produto = new Produto();
@@ -337,9 +346,9 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
         produto.setEan(tfEan.getText());
         produto.setGarantia(tfGarantia.getText());
         produto.setMarca(tfMarca.getText());
-        produto.setPeso(Double.parseDouble(tfPeso.getText()));
-        produto.setPreco(Double.parseDouble(tfPreco.getText()));
-        produto.setCusto(Double.parseDouble(tfCusto.getText()));
+        produto.setPeso(formatacoes.valorFormatadoVirgulaParaPonto(tfPeso.getText()));
+        produto.setPreco(formatacoes.valorFormatadoVirgulaParaPonto(tfPreco.getText()));
+        produto.setCusto(formatacoes.valorFormatadoVirgulaParaPonto(tfCusto.getText()));
         produto.setQuantidade(Integer.parseInt(tfEstoque.getText()));
         produto.setEstoque_minimo(Integer.parseInt(tfEstoqueMinimo.getText()));
         produto.setDescricao(jtaDescricao.getText());
@@ -453,7 +462,6 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
     private javax.swing.JButton btnAbrirImagem;
     private javax.swing.JButton btnIncluir;
     private javax.swing.JButton btnLimpar1;
-    private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cbEmbalagem;
     private javax.swing.JLabel jLabel1;

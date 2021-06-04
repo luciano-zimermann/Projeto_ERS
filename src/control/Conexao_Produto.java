@@ -35,7 +35,7 @@ public class Conexao_Produto {
             stmt.setInt(11, produto.getEstoque_minimo());
             stmt.setInt(12, produto.getQuantidade());
             stmt.execute();
-
+            
         } catch (SQLException ex) {
 
             ex.printStackTrace();

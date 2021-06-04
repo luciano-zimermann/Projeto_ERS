@@ -18,7 +18,7 @@ public class Conexao_Entrada {
 
     public void inserir(Entrada entrada) {
 
-        String sql = "INSERT INTO entrada(unidades,data_entrada,id_item) VALUES(?,?,?)";
+        String sql = "INSERT INTO entrada(unidades,data_entrada,id_item,descricao) VALUES(?,?,?,?)";
 
         try {
 
@@ -26,6 +26,7 @@ public class Conexao_Entrada {
             stmt.setInt(1, entrada.getUnidades());
             stmt.setDate(2, (Date) entrada.getData_entrada());
             stmt.setInt(3, entrada.getProduto().getId_item());
+            stmt.setString(4, entrada.getDescricao());
             stmt.execute();
 
         } catch (SQLException ex) {
@@ -55,7 +56,7 @@ public class Conexao_Entrada {
 
     public void alterar(Entrada entrada) {
 
-        String sql = "UPDATE entrada SET unidades = ?,data_entrada = ?,id_item = ? WHERE id_entrada = ?";
+        String sql = "UPDATE entrada SET unidades = ?,data_entrada = ?,id_item = ?,descricao = ? WHERE id_entrada = ?";
 
         try {
 
@@ -63,7 +64,8 @@ public class Conexao_Entrada {
             stmt.setInt(1, entrada.getUnidades());
             stmt.setDate(2, (Date) entrada.getData_entrada());
             stmt.setInt(3, entrada.getProduto().getId_item());
-            stmt.setInt(4, entrada.getId_entrada());
+            stmt.setString(4, entrada.getDescricao());
+            stmt.setInt(5, entrada.getId_entrada());
             stmt.execute();
 
         } catch (SQLException ex) {
@@ -91,6 +93,7 @@ public class Conexao_Entrada {
                 entrada.setUnidades(response.getInt("unidades"));
                 entrada.setData_entrada(response.getDate("data_entrada"));
                 entrada.setProduto(response.getObject("id_item", Produto.class));
+                entrada.setDescricao(response.getString("descricao"));
 
                 lista.add(entrada);
 

@@ -18,7 +18,7 @@ public class Conexao_Saida {
 
     public void inserir(Saida saida) {
 
-        String sql = "INSERT INTO saida(unidades,data_saida,id_item) VALUES(?,?,?)";
+        String sql = "INSERT INTO saida(unidades,data_saida,id_item,descricao) VALUES(?,?,?,?)";
 
         try {
 
@@ -26,6 +26,7 @@ public class Conexao_Saida {
             stmt.setInt(1, saida.getUnidades());
             stmt.setDate(2, (Date) saida.getData_saida());
             stmt.setInt(3, saida.getProduto().getId_item());
+            stmt.setString(4, saida.getDescricao());
             stmt.execute();
 
         } catch (SQLException ex) {
@@ -55,7 +56,7 @@ public class Conexao_Saida {
 
     public void alterar(Saida saida) {
 
-        String sql = "UPDATE saida SET unidades = ?,data_entrada = ?,id_item = ? WHERE id_entrada = ?";
+        String sql = "UPDATE saida SET unidades = ?,data_entrada = ?,id_item = ?, descricao = ? WHERE id_entrada = ?";
 
         try {
 
@@ -63,7 +64,8 @@ public class Conexao_Saida {
             stmt.setInt(1, saida.getUnidades());
             stmt.setDate(2, (Date) saida.getData_saida());
             stmt.setInt(3, saida.getProduto().getId_item());
-            stmt.setInt(4, saida.getId_saida());
+            stmt.setString(4, saida.getDescricao());
+            stmt.setInt(5, saida.getId_saida());
             stmt.execute();
 
         } catch (SQLException ex) {
@@ -91,6 +93,7 @@ public class Conexao_Saida {
                 saida.setUnidades(response.getInt("unidades"));
                 saida.setData_saida(response.getDate("data_saida"));
                 saida.setProduto(response.getObject("id_item", Produto.class));
+                saida.setDescricao(response.getString("descricao"));
 
                 lista.add(saida);
 

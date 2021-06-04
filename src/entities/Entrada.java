@@ -8,6 +8,7 @@ public class Entrada {
     private Integer unidades;
     private Date data_entrada;
     private Produto produto;
+    private String descricao;
 
     public Integer getId_entrada() {
         return id_entrada;
@@ -39,6 +40,14 @@ public class Entrada {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
 }

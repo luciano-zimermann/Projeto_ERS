@@ -8,6 +8,7 @@ public class Saida {
     private Integer unidades;
     private Date data_saida;
     private Produto produto;
+    private String descricao;
 
     public Integer getId_saida() {
         return id_saida;
@@ -39,6 +40,14 @@ public class Saida {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
 }
