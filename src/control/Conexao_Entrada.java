@@ -9,9 +9,11 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import utility.Formatacoes;
 
 public class Conexao_Entrada {
-
+    
+    Formatacoes formatacoes = new Formatacoes();
     Conexao conexao = new Conexao();
     Connection con = Conexao.Connetion();
     PreparedStatement stmt;
@@ -24,7 +26,7 @@ public class Conexao_Entrada {
 
             stmt = (PreparedStatement) con.prepareStatement(sql);
             stmt.setInt(1, entrada.getUnidades());
-            stmt.setDate(2, (Date) entrada.getData_entrada());
+            stmt.setString(2, formatacoes.dataFormatada());
             stmt.setInt(3, entrada.getProduto().getId_item());
             stmt.setString(4, entrada.getDescricao());
             stmt.execute();
@@ -62,7 +64,7 @@ public class Conexao_Entrada {
 
             stmt = (PreparedStatement) con.prepareStatement(sql);
             stmt.setInt(1, entrada.getUnidades());
-            stmt.setDate(2, (Date) entrada.getData_entrada());
+            stmt.setString(2, formatacoes.dataFormatada());
             stmt.setInt(3, entrada.getProduto().getId_item());
             stmt.setString(4, entrada.getDescricao());
             stmt.setInt(5, entrada.getId_entrada());

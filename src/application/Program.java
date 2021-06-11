@@ -7,8 +7,8 @@ public class Program {
 
     public static void main(String[] args) {
 
-       TelaGeral  t = new TelaGeral();
-       t.setVisible(true);
+        TelaGeral  t = new TelaGeral();
+        t.setVisible(true);
     }
 
 }

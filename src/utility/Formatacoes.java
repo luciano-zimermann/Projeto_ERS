@@ -1,6 +1,8 @@
 package utility;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Formatacoes {
 
@@ -32,6 +34,18 @@ public class Formatacoes {
         DecimalFormat formato = new DecimalFormat(unidadeMonetaria + " #,###,##0.00");
 
         return formato.format(valor);
+
+    }
+
+    public String dataFormatada() {
+
+        Date data = new Date();
+        
+        SimpleDateFormat Formatador = new SimpleDateFormat("yyyy-MM-dd");
+
+        String dataFormatada = Formatador.format(data);
+
+        return dataFormatada;
 
     }
 

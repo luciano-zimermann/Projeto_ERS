@@ -29,6 +29,7 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
         initComponents();
         listarEmbalagem();
         this.telaProduto = telaProduto;
+        this.setResizable(false);
     }
 
     TelaProduto telaProduto;
@@ -44,7 +45,7 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
     private void initComponents() {
 
         jpSuperior = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jpInferior = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jpCentro = new javax.swing.JPanel();
@@ -91,25 +92,22 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
 
         jpSuperior.setBackground(new java.awt.Color(0, 0, 140));
 
-        jLabel1.setBackground(new java.awt.Color(0, 255, 255));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("LOGO ERS");
+        jLabel18.setBackground(new java.awt.Color(0, 255, 255));
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Logo-trans-Pequeno.png"))); // NOI18N
+        jLabel18.setText("LOGO ERS");
 
         javax.swing.GroupLayout jpSuperiorLayout = new javax.swing.GroupLayout(jpSuperior);
         jpSuperior.setLayout(jpSuperiorLayout);
         jpSuperiorLayout.setHorizontalGroup(
             jpSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpSuperiorLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(704, Short.MAX_VALUE))
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 719, Short.MAX_VALUE))
         );
         jpSuperiorLayout.setVerticalGroup(
             jpSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpSuperiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jpSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -464,7 +462,6 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
     private javax.swing.JButton btnLimpar1;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cbEmbalagem;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -473,6 +470,7 @@ public class DialogIncluirProduto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

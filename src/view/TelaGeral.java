@@ -10,13 +10,15 @@ public class TelaGeral extends javax.swing.JFrame {
 
     public TelaGeral() {
         initComponents();
+        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jpGeral = new javax.swing.JPanel();
+        jpCentro = new javax.swing.JPanel();
         lblProdutos = new javax.swing.JLabel();
         lblIconeProduto = new javax.swing.JLabel();
         lblRelatorios = new javax.swing.JLabel();
@@ -28,20 +30,19 @@ public class TelaGeral extends javax.swing.JFrame {
         lblIconeSaida = new javax.swing.JLabel();
         lblIconeRelatorios = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jpSuperior = new javax.swing.JPanel();
+        jpInferior = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jpCentro.setBackground(new java.awt.Color(255, 255, 255));
+        jpCentro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblProdutos.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblProdutos.setForeground(new java.awt.Color(0, 102, 204));
         lblProdutos.setText("PRODUTOS");
-        jPanel1.add(lblProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jpCentro.add(lblProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         lblIconeProduto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblIconeProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/product.png"))); // NOI18N
@@ -50,12 +51,12 @@ public class TelaGeral extends javax.swing.JFrame {
                 lblIconeProdutoMouseClicked(evt);
             }
         });
-        jPanel1.add(lblIconeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 92));
+        jpCentro.add(lblIconeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, 92));
 
         lblRelatorios.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblRelatorios.setForeground(new java.awt.Color(0, 102, 204));
         lblRelatorios.setText("RELATÓRIOS");
-        jPanel1.add(lblRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jpCentro.add(lblRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         lblIconeEntrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/arrow_circle_right_icon_155798.png"))); // NOI18N
         lblIconeEntrada.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -63,12 +64,12 @@ public class TelaGeral extends javax.swing.JFrame {
                 lblIconeEntradaMouseClicked(evt);
             }
         });
-        jPanel1.add(lblIconeEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
+        jpCentro.add(lblIconeEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
 
         lblEmbalagens.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblEmbalagens.setForeground(new java.awt.Color(0, 102, 204));
         lblEmbalagens.setText("EMBALAGENS");
-        jPanel1.add(lblEmbalagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jpCentro.add(lblEmbalagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         lblIconeEmbalagens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/box_icon_155728 (1).png"))); // NOI18N
         lblIconeEmbalagens.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -76,17 +77,17 @@ public class TelaGeral extends javax.swing.JFrame {
                 lblIconeEmbalagensMouseClicked(evt);
             }
         });
-        jPanel1.add(lblIconeEmbalagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+        jpCentro.add(lblIconeEmbalagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
         lblEntrada.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblEntrada.setForeground(new java.awt.Color(0, 102, 204));
         lblEntrada.setText("ENTRADA");
-        jPanel1.add(lblEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        jpCentro.add(lblEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
 
         lblSaida.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lblSaida.setForeground(new java.awt.Color(0, 102, 204));
         lblSaida.setText("SAÍDA");
-        jPanel1.add(lblSaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
+        jpCentro.add(lblSaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
 
         lblIconeSaida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/arrow_circle_left_icon_155799.png"))); // NOI18N
         lblIconeSaida.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,7 +95,7 @@ public class TelaGeral extends javax.swing.JFrame {
                 lblIconeSaidaMouseClicked(evt);
             }
         });
-        jPanel1.add(lblIconeSaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+        jpCentro.add(lblIconeSaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, -1, -1));
 
         lblIconeRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/log_icon_155172.png"))); // NOI18N
         lblIconeRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,38 +103,62 @@ public class TelaGeral extends javax.swing.JFrame {
                 lblIconeRelatoriosMouseClicked(evt);
             }
         });
-        jPanel1.add(lblIconeRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+        jpCentro.add(lblIconeRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Logo.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Logo-trans.png"))); // NOI18N
         jLabel3.setText("Imagem");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, -20, 790, 540));
+        jpCentro.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 590, 500));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1000, 612));
+        jpSuperior.setBackground(new java.awt.Color(0, 0, 140));
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 140));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpSuperiorLayout = new javax.swing.GroupLayout(jpSuperior);
+        jpSuperior.setLayout(jpSuperiorLayout);
+        jpSuperiorLayout.setHorizontalGroup(
+            jpSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1000, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+        jpSuperiorLayout.setVerticalGroup(
+            jpSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 130));
-
-        jPanel3.setBackground(new java.awt.Color(0, 0, 140));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jpInferior.setBackground(new java.awt.Color(0, 0, 140));
+        jpInferior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("© ECOMMERCE REGISTER SOLUTIONS - TODOS OS DIREITOS RESERVADOS © ");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+        jpInferior.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 682, 1000, -1));
+        javax.swing.GroupLayout jpGeralLayout = new javax.swing.GroupLayout(jpGeral);
+        jpGeral.setLayout(jpGeralLayout);
+        jpGeralLayout.setHorizontalGroup(
+            jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpGeralLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jpSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpInferior, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jpGeralLayout.setVerticalGroup(
+            jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jpGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpGeralLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jpSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jpCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jpInferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(jpGeral, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -211,9 +236,10 @@ public class TelaGeral extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jpCentro;
+    private javax.swing.JPanel jpGeral;
+    private javax.swing.JPanel jpInferior;
+    private javax.swing.JPanel jpSuperior;
     private javax.swing.JLabel lblEmbalagens;
     private javax.swing.JLabel lblEntrada;
     private javax.swing.JLabel lblIconeEmbalagens;

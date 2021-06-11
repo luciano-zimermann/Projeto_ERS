@@ -22,9 +22,10 @@ public class DialogEmbalagem extends javax.swing.JDialog {
      */
     public DialogEmbalagem(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
+        initComponents();        
+        this.setResizable(false);
+        
         getTabelaEmbalagem();
-        //teste
     }
     
     Embalagem embalagem;
@@ -39,14 +40,15 @@ public class DialogEmbalagem extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        tfdDescricaoEmbalagem = new javax.swing.JTextField();
+        jpEmbalagem = new javax.swing.JPanel();
+        jpInferior = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jpCentro = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        tfdComprimentoEmbalagem = new javax.swing.JTextField();
-        tfdLarguraEmbalagem = new javax.swing.JTextField();
-        tfdAlturaEmbalagem = new javax.swing.JTextField();
+        tfdDescricaoEmbalagem = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaEmbalagens = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
@@ -56,61 +58,61 @@ public class DialogEmbalagem extends javax.swing.JDialog {
         btnExcluirEmbalagem = new javax.swing.JButton();
         btnAlterarEmbalagem = new javax.swing.JButton();
         btnLimparCampos = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        tfdLarguraEmbalagem = new javax.swing.JTextField();
+        tfdAlturaEmbalagem = new javax.swing.JTextField();
+        tfdComprimentoEmbalagem = new javax.swing.JTextField();
+        jpSuperior = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 650));
+        setPreferredSize(new java.awt.Dimension(950, 638));
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jpEmbalagem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tfdDescricaoEmbalagem.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jpInferior.setForeground(new java.awt.Color(0, 0, 140));
+        jpInferior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(0, 0, 140));
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("© ECOMMERCE REGISTER SOLUTIONS - TODOS OS DIREITOS RESERVADOS © ");
+        jPanel4.add(jLabel2, java.awt.BorderLayout.CENTER);
+
+        jpInferior.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 14));
+
+        jpEmbalagem.add(jpInferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 585, 950, -1));
+
+        jpCentro.setBackground(new java.awt.Color(255, 255, 255));
+        jpCentro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel5.setText("LARGURA");
+        jpCentro.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel6.setText("COMPRIMENTO");
+        jpCentro.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 150, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 140));
+        jLabel7.setText("ALTURA");
+        jpCentro.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        tfdDescricaoEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
         tfdDescricaoEmbalagem.setForeground(new java.awt.Color(0, 0, 140));
         tfdDescricaoEmbalagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfdDescricaoEmbalagemActionPerformed(evt);
             }
         });
-
-        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 140));
-        jLabel5.setText("LARGURA");
-
-        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 140));
-        jLabel6.setText("COMPRIMENTO");
-
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 140));
-        jLabel7.setText("ALTURA");
-
-        tfdComprimentoEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        tfdComprimentoEmbalagem.setForeground(new java.awt.Color(0, 0, 140));
-        tfdComprimentoEmbalagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfdComprimentoEmbalagemActionPerformed(evt);
-            }
-        });
-
-        tfdLarguraEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        tfdLarguraEmbalagem.setForeground(new java.awt.Color(0, 0, 140));
-        tfdLarguraEmbalagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfdLarguraEmbalagemActionPerformed(evt);
-            }
-        });
-
-        tfdAlturaEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        tfdAlturaEmbalagem.setForeground(new java.awt.Color(0, 0, 140));
-        tfdAlturaEmbalagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfdAlturaEmbalagemActionPerformed(evt);
-            }
-        });
+        jpCentro.add(tfdDescricaoEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 109, 210, -1));
 
         tblListaEmbalagens.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
         tblListaEmbalagens.setForeground(new java.awt.Color(0, 0, 140));
@@ -129,9 +131,12 @@ public class DialogEmbalagem extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tblListaEmbalagens);
 
+        jpCentro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 590, 380));
+
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 140));
         jLabel8.setText("DESCRIÇÃO");
+        jpCentro.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 110, -1, 20));
 
         btnIncluirEmbalagem.setBackground(new java.awt.Color(0, 0, 140));
         btnIncluirEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -143,6 +148,7 @@ public class DialogEmbalagem extends javax.swing.JDialog {
                 btnIncluirEmbalagemActionPerformed(evt);
             }
         });
+        jpCentro.add(btnIncluirEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 319, -1, 27));
 
         tfdBuscarEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
         tfdBuscarEmbalagem.setForeground(new java.awt.Color(0, 0, 140));
@@ -151,6 +157,7 @@ public class DialogEmbalagem extends javax.swing.JDialog {
                 tfdBuscarEmbalagemActionPerformed(evt);
             }
         });
+        jpCentro.add(tfdBuscarEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 280, 30));
 
         btnBuscarEmbalagem.setBackground(new java.awt.Color(0, 0, 140));
         btnBuscarEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -162,6 +169,7 @@ public class DialogEmbalagem extends javax.swing.JDialog {
                 btnBuscarEmbalagemActionPerformed(evt);
             }
         });
+        jpCentro.add(btnBuscarEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 150, 30));
 
         btnExcluirEmbalagem.setBackground(new java.awt.Color(0, 0, 140));
         btnExcluirEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -173,6 +181,7 @@ public class DialogEmbalagem extends javax.swing.JDialog {
                 btnExcluirEmbalagemActionPerformed(evt);
             }
         });
+        jpCentro.add(btnExcluirEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 143, 27));
 
         btnAlterarEmbalagem.setBackground(new java.awt.Color(0, 0, 140));
         btnAlterarEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -184,6 +193,7 @@ public class DialogEmbalagem extends javax.swing.JDialog {
                 btnAlterarEmbalagemActionPerformed(evt);
             }
         });
+        jpCentro.add(btnAlterarEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, 139, 27));
 
         btnLimparCampos.setBackground(new java.awt.Color(0, 0, 140));
         btnLimparCampos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -195,153 +205,64 @@ public class DialogEmbalagem extends javax.swing.JDialog {
                 btnLimparCamposActionPerformed(evt);
             }
         });
+        jpCentro.add(btnLimparCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 352, 129, 27));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(350, 350, 350)
-                        .addComponent(tfdBuscarEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnBuscarEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel8))
-                            .addComponent(jLabel6)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel5))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel7)))
-                        .addGap(3, 3, 3)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfdDescricaoEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfdComprimentoEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfdLarguraEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfdAlturaEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnLimparCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnIncluirEmbalagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(btnAlterarEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnExcluirEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 160, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfdBuscarEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel6)
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel5)
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel7))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tfdDescricaoEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21)
-                                .addComponent(tfdComprimentoEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(tfdLarguraEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(tfdAlturaEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(btnIncluirEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExcluirEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAlterarEmbalagem, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-        );
+        tfdLarguraEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        tfdLarguraEmbalagem.setForeground(new java.awt.Color(0, 0, 140));
+        tfdLarguraEmbalagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfdLarguraEmbalagemActionPerformed(evt);
+            }
+        });
+        jpCentro.add(tfdLarguraEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 187, 210, -1));
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        tfdAlturaEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        tfdAlturaEmbalagem.setForeground(new java.awt.Color(0, 0, 140));
+        tfdAlturaEmbalagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfdAlturaEmbalagemActionPerformed(evt);
+            }
+        });
+        jpCentro.add(tfdAlturaEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 227, 210, -1));
+
+        tfdComprimentoEmbalagem.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
+        tfdComprimentoEmbalagem.setForeground(new java.awt.Color(0, 0, 140));
+        tfdComprimentoEmbalagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfdComprimentoEmbalagemActionPerformed(evt);
+            }
+        });
+        jpCentro.add(tfdComprimentoEmbalagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 147, 210, -1));
+
+        jpEmbalagem.add(jpCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 950, 520));
+
+        jpSuperior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 140));
 
-        jLabel1.setBackground(new java.awt.Color(0, 255, 255));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("LOGO ERS");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Logo-trans-Pequeno.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(854, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(865, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 950, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jpSuperior.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 70));
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
+        jpEmbalagem.add(jpSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel3.setLayout(new java.awt.BorderLayout());
-
-        jPanel4.setBackground(new java.awt.Color(0, 0, 140));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("© ECOMMERCE REGISTER SOLUTIONS - TODOS OS DIREITOS RESERVADOS © ");
-        jPanel4.add(jLabel2, java.awt.BorderLayout.CENTER);
-
-        jPanel3.add(jPanel4, java.awt.BorderLayout.CENTER);
-
-        getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(jpEmbalagem, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -350,18 +271,6 @@ public class DialogEmbalagem extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfdDescricaoEmbalagemActionPerformed
 
-    private void tfdComprimentoEmbalagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdComprimentoEmbalagemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfdComprimentoEmbalagemActionPerformed
-
-    private void tfdLarguraEmbalagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdLarguraEmbalagemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfdLarguraEmbalagemActionPerformed
-
-    private void tfdAlturaEmbalagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdAlturaEmbalagemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfdAlturaEmbalagemActionPerformed
-
     private void btnIncluirEmbalagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirEmbalagemActionPerformed
         Conexao_Embalagem conexao_Embalagem = new Conexao_Embalagem();
         
@@ -369,7 +278,7 @@ public class DialogEmbalagem extends javax.swing.JDialog {
         
         embalagem.setDescricao(tfdDescricaoEmbalagem.getText());
         embalagem.setComprimento(Double.parseDouble(tfdComprimentoEmbalagem.getText()));
-        embalagem.setLargura(Double.parseDouble(tfdLarguraEmbalagem.getText()));
+        embalagem.setLargura(Double.parseDouble(tfdDescricaoEmbalagem.getText()));
         embalagem.setAltura(Double.parseDouble(tfdAlturaEmbalagem.getText()));
         
         conexao_Embalagem.inserir(embalagem);
@@ -424,9 +333,21 @@ public class DialogEmbalagem extends javax.swing.JDialog {
     private void btnLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCamposActionPerformed
         tfdDescricaoEmbalagem.setText("");
         tfdComprimentoEmbalagem.setText("");
-        tfdLarguraEmbalagem.setText("");
+        tfdDescricaoEmbalagem.setText("");
         tfdAlturaEmbalagem.setText("");
     }//GEN-LAST:event_btnLimparCamposActionPerformed
+
+    private void tfdLarguraEmbalagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdLarguraEmbalagemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfdLarguraEmbalagemActionPerformed
+
+    private void tfdAlturaEmbalagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdAlturaEmbalagemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfdAlturaEmbalagemActionPerformed
+
+    private void tfdComprimentoEmbalagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdComprimentoEmbalagemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfdComprimentoEmbalagemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,12 +427,13 @@ public class DialogEmbalagem extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpCentro;
+    private javax.swing.JPanel jpEmbalagem;
+    private javax.swing.JPanel jpInferior;
+    private javax.swing.JPanel jpSuperior;
     private javax.swing.JTable tblListaEmbalagens;
     private javax.swing.JTextField tfdAlturaEmbalagem;
     private javax.swing.JTextField tfdBuscarEmbalagem;
