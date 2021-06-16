@@ -18,7 +18,7 @@ public class Conexao {
             String user = "root";
             String pass = "";
             String driver = "com.mysql.cj.jdbc.Driver";
-            String local = "jdbc:mysql://localhost:3308/projetoers";
+            String local = "jdbc:mysql://localhost:3306/projetoers";
 
             Class.forName(driver);
             connection = DriverManager.getConnection(local, user, pass);

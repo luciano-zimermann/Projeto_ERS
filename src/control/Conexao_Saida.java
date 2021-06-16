@@ -7,7 +7,7 @@ import java.util.List;
 import utility.Formatacoes;
 
 public class Conexao_Saida {
-    
+
     Formatacoes formatacoes = new Formatacoes();
     Conexao conexao = new Conexao();
     Connection con = Conexao.Connetion();
@@ -89,7 +89,7 @@ public class Conexao_Saida {
                 saida.setId_saida(response.getInt("id_saida"));
                 saida.setUnidades(response.getInt("unidades"));
                 saida.setData_saida(response.getDate("data_saida"));
-                saida.setProduto(response.getObject("id_item", Produto.class));
+                saida.setProduto(getProduto(response.getInt("id_item")));
                 saida.setDescricao(response.getString("descricao"));
 
                 lista.add(saida);
@@ -103,6 +103,23 @@ public class Conexao_Saida {
         }
 
         return lista;
+    }
+
+    public Produto getProduto(int id_item) {
+        Conexao_Produto conexao_Produto = new Conexao_Produto();
+        int item = id_item;
+        Produto produto = new Produto();
+        for (int i = 0; i < conexao_Produto.listar().size(); i++) {
+
+            if (conexao_Produto.listar().get(i).getId_item().equals(item)) {
+
+                produto.setId_item(conexao_Produto.listar().get(i).getId_item());
+                produto.setNome(conexao_Produto.listar().get(i).getNome());
+               
+            }
+
+        }
+        return produto;
     }
 
 }
