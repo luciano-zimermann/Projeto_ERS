@@ -1,17 +1,14 @@
 package control;
 
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
-import java.sql.Connection;
-import entities.Produto;
-import entities.Saida;
-import java.sql.Date;
-import java.sql.SQLException;
+import java.sql.*;
+import entities.*;
 import java.util.ArrayList;
 import java.util.List;
+import utility.Formatacoes;
 
 public class Conexao_Saida {
-
+    
+    Formatacoes formatacoes = new Formatacoes();
     Conexao conexao = new Conexao();
     Connection con = Conexao.Connetion();
     PreparedStatement stmt;
@@ -24,7 +21,7 @@ public class Conexao_Saida {
 
             stmt = (PreparedStatement) con.prepareStatement(sql);
             stmt.setInt(1, saida.getUnidades());
-            stmt.setDate(2, (Date) saida.getData_saida());
+            stmt.setString(2, formatacoes.dataFormatada());
             stmt.setInt(3, saida.getProduto().getId_item());
             stmt.setString(4, saida.getDescricao());
             stmt.execute();
@@ -62,7 +59,7 @@ public class Conexao_Saida {
 
             stmt = (PreparedStatement) con.prepareStatement(sql);
             stmt.setInt(1, saida.getUnidades());
-            stmt.setDate(2, (Date) saida.getData_saida());
+            stmt.setString(2, formatacoes.dataFormatada());
             stmt.setInt(3, saida.getProduto().getId_item());
             stmt.setString(4, saida.getDescricao());
             stmt.setInt(5, saida.getId_saida());

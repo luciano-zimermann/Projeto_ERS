@@ -162,7 +162,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfdQuantidadeEntrada">
+            <Component class="javax.swing.JTextField" name="tfdQuantidadeSaida">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Informe uma quantidade de produtos"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

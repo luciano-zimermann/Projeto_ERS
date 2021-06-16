@@ -5,11 +5,16 @@
  */
 package view;
 
+import control.Conexao_Entrada;
 import control.Conexao_Produto;
+import control.Conexao_Saida;
+import entities.Entrada;
 import entities.Produto;
+import entities.Saida;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import utility.Formatacoes;
 
@@ -26,12 +31,13 @@ public class DialogSaida extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setResizable(false);
+        getTabelaProduto();
     }
 
     Vector linhas = new Vector();
     List<Integer> quantidade = new ArrayList<>();
     List<Integer> identificador = new ArrayList<>();
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,7 +51,7 @@ public class DialogSaida extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtProdutos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        tfdQuantidadeEntrada = new javax.swing.JTextField();
+        tfdQuantidadeSaida = new javax.swing.JTextField();
         btnEfetuarSaida = new javax.swing.JButton();
         btnTirarProdutoSaida = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -130,9 +136,9 @@ public class DialogSaida extends javax.swing.JDialog {
         jLabel5.setText("LISTA DE PRODUTOS");
         jpCentro.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
-        tfdQuantidadeEntrada.setToolTipText("Informe uma quantidade de produtos");
-        tfdQuantidadeEntrada.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 140), 2, true));
-        jpCentro.add(tfdQuantidadeEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 100, -1));
+        tfdQuantidadeSaida.setToolTipText("Informe uma quantidade de produtos");
+        tfdQuantidadeSaida.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 140), 2, true));
+        jpCentro.add(tfdQuantidadeSaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 100, -1));
 
         btnEfetuarSaida.setBackground(new java.awt.Color(0, 0, 140));
         btnEfetuarSaida.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -247,13 +253,91 @@ public class DialogSaida extends javax.swing.JDialog {
 
     private void btnEfetuarSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarSaidaActionPerformed
 
+        if (linhas.isEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "Selecione o(s) produto(s) desejado(s) para efetuar a saida!");
+
+        } else {
+            if (tfdDescricaoSaida.getText().isEmpty()) {
+
+                JOptionPane.showMessageDialog(null, "Digite uma descrição para dar saida!");
+
+            } else {
+                if (JOptionPane.showConfirmDialog(null, "Deseja realmente efetuar a saida do(s) produto(s) listado(s)?") == JOptionPane.YES_OPTION) {
+
+                    for (int i = 0; i < linhas.size(); i++) {
+                        Conexao_Saida conexao_Saida = new Conexao_Saida();
+                        Saida saida = new Saida();
+                        saida.setDescricao(tfdDescricaoSaida.getText());
+                        saida.setUnidades(quantidade.get(i));
+                        saida.setProduto(getProduto(identificador.get(i)));
+                        conexao_Saida.inserir(saida);
+                    }
+
+                    for (int i = 0; i < linhas.size(); i++) {
+                        Conexao_Produto conexao_Produto = new Conexao_Produto();
+                        Produto produto = getProduto(identificador.get(i));
+                        produto.setQuantidade(produto.getQuantidade() - quantidade.get(i));
+                        conexao_Produto.alterar(produto);
+
+                    }
+
+                    quantidade.clear();
+                    identificador.clear();
+                    linhas.clear();
+                    getNovaTabelaSaida();
+
+                    JOptionPane.showMessageDialog(null, "Efetuado a saida com sucesso!");
+
+                }
+            }
+        }
+        
+        
+        
     }//GEN-LAST:event_btnEfetuarSaidaActionPerformed
 
     private void btnTirarProdutoSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTirarProdutoSaidaActionPerformed
+        int selecaoProduto = tblListaSaida.getSelectedRow();
+
+        if (selecaoProduto >= 0) {
+            linhas.remove(selecaoProduto);
+            quantidade.remove(selecaoProduto);
+            identificador.remove(selecaoProduto);
+            getNovaTabelaSaida();
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Selecione um produto na tabela!");
+
+        }
+
 
     }//GEN-LAST:event_btnTirarProdutoSaidaActionPerformed
 
     private void btnAdicionarSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarSaidaActionPerformed
+
+        int selecaoProduto = jtProdutos.getSelectedRow();
+
+        if (selecaoProduto >= 0) {
+            if (tfdQuantidadeSaida.getText().isEmpty()) {
+
+                JOptionPane.showMessageDialog(null, "Coloque a quantidade para saida do produto!");
+
+            } else {
+                Conexao_Produto conexao_Produto = new Conexao_Produto();
+                Produto produto = new Produto();
+                produto = conexao_Produto.listar().get(selecaoProduto);
+                getTabelaSaida(produto);
+
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Selecione um produto na tabela!");
+
+        }
+
 
     }//GEN-LAST:event_btnAdicionarSaidaActionPerformed
 
@@ -320,11 +404,11 @@ public class DialogSaida extends javax.swing.JDialog {
     private javax.swing.JTable jtProdutos;
     private javax.swing.JTable tblListaSaida;
     private javax.swing.JTextField tfdDescricaoSaida;
-    private javax.swing.JTextField tfdQuantidadeEntrada;
+    private javax.swing.JTextField tfdQuantidadeSaida;
     // End of variables declaration//GEN-END:variables
 
-public void getTabelaProduto() {
-        Formatacoes formatacoes = new Formatacoes();
+    public void getTabelaProduto() {
+
         Conexao_Produto conexao_Produto = new Conexao_Produto();
 
         Vector cabecalho = new Vector();
@@ -365,10 +449,10 @@ public void getTabelaProduto() {
         colunas.add(produto.getId_item());
         colunas.add(produto.getNome());
         colunas.add(produto.getPreco());
-        colunas.add(tfdQuantidadeEntrada.getText());
+        colunas.add(tfdQuantidadeSaida.getText());
 
         identificador.add(produto.getId_item());
-        quantidade.add(Integer.parseInt(tfdQuantidadeEntrada.getText()));
+        quantidade.add(Integer.parseInt(tfdQuantidadeSaida.getText()));
         linhas.add(new Vector(colunas));
         tblListaSaida.setModel(new DefaultTableModel(linhas, cabecalho));
 
@@ -405,4 +489,3 @@ public void getTabelaProduto() {
     }
 
 }
-

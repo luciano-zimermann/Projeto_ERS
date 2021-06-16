@@ -396,7 +396,7 @@ public class DialogEntrada extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     public void getTabelaProduto() {
-        Formatacoes formatacoes = new Formatacoes();
+
         Conexao_Produto conexao_Produto = new Conexao_Produto();
 
         Vector cabecalho = new Vector();
